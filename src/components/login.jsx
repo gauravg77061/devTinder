@@ -10,6 +10,7 @@ import { BASE_URL } from '../utils/constant';
 const Login = () => {
   const[email,setEmail]=useState("gaurav123@gmail.com");
 const[password,setPassword]=useState("Gaurav@123");
+const[error,setError]=useState("");
 const dispatch = useDispatch();
 const navigate=useNavigate();
 
@@ -27,11 +28,8 @@ const handleLogin=async ()=>{
 
     return navigate("/");
   } catch (error) {
-     if (error.response) {
-    console.log("Server error:", error.response.data);
-  } else {
-    console.log("Network error:", error.message);
-  }
+     setError(error?.response?.data||"Something went wrong");
+    // console.error(error);
   }
 }
 
@@ -66,7 +64,7 @@ const handleLogin=async ()=>{
     setPassword(e.target.value);
    }}
    />
- 
+ <p className='text-red-500'>{error}</p>
 </fieldset>
     <div className="card-actions justify-end">
       <button className="btn btn-primary w-full mt-4" onClick={handleLogin}>Login</button>

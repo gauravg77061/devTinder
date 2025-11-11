@@ -15,3 +15,10 @@ haa but agar ham url se change karke navigate karte h toh ye api call hi karega
 fetch user from store ->   const user = useSelector((store) => store.user);
 thn call this in fetchUser ki agar ye user present naa htab hi api call kare 
 ar hamne link karke dekhe pages ko toh api call nh ho rahi thi 
+
+part-3
+Logout feature 
+->Log out feature mein we connected on click with logout at navbar
+->using on click method
+->and in onclick method I have call a function calling logout api from backend 
+
