@@ -6,25 +6,30 @@ import './App.css'
 import { BrowserRouter, Route,Routes } from 'react-router-dom'
 import BasePage from './components/basePage'
 import Login from './components/login'
-
+import {Provider} from "react-redux"
 import Profile from './components/profile'
+import appStore from './utils/appStore'
+import Feed from './components/feed'
 
 function App() {
  
-
+//// adding redux store to all components available  at line number 2 -> provider 
   return (
     <>
-      
+       
+      <Provider store={appStore}>
       <BrowserRouter basename='/'>
 
       <Routes>
         <Route path='/' element={<BasePage/>}>
+         <Route path='/' element={<Feed/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/profile' element={<Profile/>}/>
         </Route>
       </Routes>
 
       </BrowserRouter>
+      </Provider>
     
       
     </>
