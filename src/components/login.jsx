@@ -22,7 +22,7 @@ const handleLogin=async ()=>{
       password,
     },{withCredentials:true});
 
-    console.log(res.data);
+    //console.log(res.data);
 
     dispatch(addUser(res.data));
 
