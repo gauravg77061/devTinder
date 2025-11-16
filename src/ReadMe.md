@@ -22,3 +22,9 @@ Logout feature
 ->using on click method
 ->and in onclick method I have call a function calling logout api from backend 
 
+part4 
+->hamne feed sx mein api call kari
+->feed kaa stre mein add kiya 
+data fetch kiya
+->card create kiya ar usme mein show kiya 
+

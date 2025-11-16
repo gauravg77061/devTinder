@@ -17,9 +17,9 @@ const feed = useSelector((store) => store.feed);
        withCredentials:true
       });
   
-      console.log(res.data);
+      console.log(res?.data);
   
-      dispatch(addFeed(res.data));
+      dispatch(addFeed(res?.data));
     } catch (error) {
       console.log(error);
     }
@@ -27,12 +27,25 @@ const feed = useSelector((store) => store.feed);
   }
   useEffect(()=>{
     getFeed();
+   // console.log("hello")
   },[])
 
   return (
-   feed&&( <div className='flex justify-center my-10'>
-      <Card user={feed[0]}/>
-    </div>)
+    
+   <div>
+   {feed && feed.length > 0 ? (
+        <div className='flex justify-center my-10'>
+          {/* Card component will receive the first feed item */}
+        
+          <Card user={feed[0]} />
+        </div>
+      ) : (
+        <div>
+          <p className="text-gray-400 text-lg">No feed is there</p>
+        </div>
+      )}
+   </div>
+  
   )
 }
 
