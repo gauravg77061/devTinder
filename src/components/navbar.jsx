@@ -38,7 +38,7 @@ const Navbar = () => {
   return (
     <div className="navbar bg-base-100 shadow-md px-6 z-50" data-theme="dark">
       <div className="flex-1">
-        <Link to="/feed" className="btn btn-ghost normal-case text-2xl font-bold">
+        <Link to="/" className="btn btn-ghost normal-case text-2xl font-bold">
           👩‍💻 devTinder
         </Link>
       </div>
