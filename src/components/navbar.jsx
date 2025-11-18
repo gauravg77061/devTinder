@@ -57,10 +57,10 @@ const Navbar = () => {
             <div
               tabIndex={0}
               role="button"
-              className="btn btn-ghost btn-circle avatar hover:scale-105 transition-all"
+              className="btn btn-ghost btn-circle avatar hover:scale-110 transition-all duration-200"
               onClick={() => setIsOpen((prev) => !prev)}
             >
-              <div className="w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+              <div className="w-12 h-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2 shadow-md overflow-hidden">
                 <img
                   alt="User Photo"
                   src={user.photoUrl}
@@ -71,23 +71,45 @@ const Navbar = () => {
             {isOpen && (
               <ul
                 tabIndex={0}
-                className="menu menu-sm dropdown-content bg-base-200 rounded-box mt-3 w-52 p-3 shadow-lg"
+                className="menu menu-sm dropdown-content bg-base-200 rounded-xl mt-3 w-56 p-3 shadow-2xl border border-base-300 animate-fadeIn"
               >
                 <li>
                   <Link
                     to="/profile"
-                    className="justify-between"
-                    onClick={() => setIsOpen(false)} //  closes on click
+                    className="justify-between font-medium hover:bg-base-300 rounded-lg"
+                    onClick={() => setIsOpen(false)} 
                   >
                     Profile
-                    <span className="badge badge-primary">New</span>
                   </Link>
                 </li>
+
                 <li>
-                  <a onClick={() => setIsOpen(false)}>Settings</a>
+                  <Link
+                    to="/connections"
+                    className="justify-between font-medium hover:bg-base-300 rounded-lg"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    Connections
+                  </Link>
                 </li>
+
                 <li>
-                  <a onClick={handleLogout}>Logout</a>
+                  <Link
+                    to="/requests"
+                    className="justify-between font-medium hover:bg-base-300 rounded-lg"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    Request
+                  </Link>
+                </li>
+
+                <li>
+                  <a 
+                    onClick={handleLogout} 
+                    className="font-medium text-error hover:bg-base-300 rounded-lg"
+                  >
+                    Logout
+                  </a>
                 </li>
               </ul>
             )}
