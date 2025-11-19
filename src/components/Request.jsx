@@ -2,7 +2,7 @@ import axios from 'axios'
 import React, { useEffect } from 'react'
 import { BASE_URL } from '../utils/constant'
 import { useDispatch, useSelector } from 'react-redux'
-import { addRequests } from '../utils/requestSlice'
+import { addRequests, removeRequest } from '../utils/requestSlice'
 
 const Request = () => {
 
@@ -16,7 +16,7 @@ const Request = () => {
         try {
             
             const res=await axios.post(BASE_URL+"request/review/"+status+"/"+_id,{},{withCredentials:true});
-
+            dispatch(removeRequest(_id));
         } catch (error) {
             console.log(error);
         }
@@ -88,8 +88,8 @@ const Request = () => {
        </div>
 
        <div className='flex flex-row gap-2'>
-        <button className="btn btn-error w-24 btn-sm shadow-md hover:scale-105 transition-all" onClick={()=> reviewRequest('Ignored',request.fromUserId._id)}>Reject</button>
-        <button className="btn btn-success w-24 btn-sm shadow-md hover:scale-105 transition-all"  onClick={() =>reviewRequest('Interested',request.fromUserId._id)}>Accept</button>
+        <button className="btn btn-error w-24 btn-sm shadow-md hover:scale-105 transition-all" onClick={()=> reviewRequest('rejected',request._id)}>Reject</button>
+        <button className="btn btn-success w-24 btn-sm shadow-md hover:scale-105 transition-all"  onClick={() =>reviewRequest('accepted',request._id)}>Accept</button>
        </div>
 
       </div>
