@@ -7,8 +7,12 @@ const feedSlice=createSlice({
         addFeed:(state,action)=>{
             return action.payload;
         },
+        // state mein mere abhi tak ke saare use pade h 
+        // mein compare kar raha hu har id ko with cation.payload 
+        // actio.payload mein meri current id padi h
         removeFeed:(state,action)=>{
-            return null;
+          const newArray=state.filter((user) => user._id !== action.payload);
+          return newArray;
         }
     }
 })
