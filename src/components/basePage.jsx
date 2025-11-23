@@ -39,9 +39,10 @@ const userData= useSelector((store)=>store.user);
     }
   }
 // page load par login naa karna pade if token is there just from that we callthe user 
-  useEffect(()=>{
-    fetchUser();
-  },[])
+useEffect(() => {
+  setTimeout(fetchUser, 150); // 150ms delay
+}, []);
+
 
   return (
     <div className="flex flex-col min-h-screen bg-base-200">

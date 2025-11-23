@@ -12,6 +12,8 @@ import appStore from './utils/appStore'
 import Feed from './components/feed'
 import Connections from './components/Connections'
 import Request from './components/Request'
+import axios from "axios";
+axios.defaults.withCredentials = true;
 
 function App() {
  
