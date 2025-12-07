@@ -36,7 +36,11 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div className="navbar bg-base-100 shadow-md px-6 z-50" data-theme="dark">
+<div className="navbar bg-base-100 shadow-md px-6 z-50 fixed top-0 left-0 w-full h-20 ">
+
+
+
+
       <div className="flex-1">
         <Link to="/" className="btn btn-ghost normal-case text-2xl font-bold">
           👩‍💻 devTinder
@@ -68,11 +72,15 @@ const Navbar = () => {
               </div>
             </div>
 
-            {isOpen && (
-              <ul
-                tabIndex={0}
-                className="menu menu-sm dropdown-content bg-base-200 rounded-xl mt-3 w-56 p-3 shadow-2xl border border-base-300 animate-fadeIn"
-              >
+           
+           {isOpen && (
+  <ul
+    tabIndex={0}
+    className="menu menu-sm dropdown-content bg-base-200 rounded-xl mt-15 w-56 p-3 shadow-2xl border border-base-300 animate-fadeIn"
+  >
+
+
+
                 <li>
                   <Link
                     to="/profile"
@@ -90,6 +98,16 @@ const Navbar = () => {
                     onClick={() => setIsOpen(false)}
                   >
                     Connections
+                  </Link>
+                </li>
+
+                 <li>
+                  <Link
+                    to="/premium"
+                    className="justify-between font-medium hover:bg-base-300 rounded-lg"
+                    onClick={() => setIsOpen(false)}
+                  >
+                  Premium
                   </Link>
                 </li>
 

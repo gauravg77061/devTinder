@@ -13,6 +13,7 @@ import Feed from './components/feed'
 import Connections from './components/Connections'
 import Request from './components/Request'
 import axios from "axios";
+import Premium from './components/Premium'
 axios.defaults.withCredentials = true;
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
         <Route path='/profile' element={<Profile/>}/>
          <Route path='/connections' element={<Connections/>}/>
           <Route path='/requests' element={<Request/>}/>
+           <Route path='/premium' element={<Premium/>}/>
         </Route>
       </Routes>
 
