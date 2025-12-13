@@ -1,8 +1,26 @@
 import axios from 'axios'
-import React from 'react'
+import React, { useState } from 'react'
 import { BASE_URL } from '../utils/constant'
 
 const Premium = () => {
+
+  const[isUserPremium,setIsUserPremium]=useState(false);
+
+  const verifyPremiumUser = async ()=>{
+    try {
+      const res=await axios.get(BASE_URL+"payment/verify",
+      {withCredentials:true}
+    );
+
+    if(res.data.isPremium){
+      setIsUserPremium(true);
+    }
+      
+    } catch (error) {
+      console.log("Verify premium failed",err);
+    }
+
+  }
 
   const handleBuyClick=async (type)=>{
    //console.log(MembershipType);
@@ -32,6 +50,7 @@ const {amount,keyId,currency,notes,orderId}=await order.data;
     theme: {
       color: "#8b5cf6",
     },
+    handler: verifyPremiumUser,
   };
 
   const razor = new window.window.Razorpay(options);
@@ -40,8 +59,8 @@ const {amount,keyId,currency,notes,orderId}=await order.data;
   };
 
   return (
-    <div >
-     <div className="w-full flex flex-col items-center mt-10">
+ <div >
+  { isUserPremium ? ("You are already a premium User")  :(<div className="w-full flex flex-col items-center mt-10">
   <div className="flex flex-wrap gap-10 justify-center">
 
     {/* CARD 1 */}
@@ -119,7 +138,7 @@ const {amount,keyId,currency,notes,orderId}=await order.data;
     </div>
 
   </div>
-</div>
+</div>)}
 
     </div>
   )
