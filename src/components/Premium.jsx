@@ -15,8 +15,8 @@ const Premium = () => {
       const res=await axios.get(BASE_URL+"payment/verify",
       {withCredentials:true}
     );
-
-    if(res.data.isPremium){
+console.log(res.data.isPremium);
+    if(res.data.isPremium === "true"){
       setIsUserPremium(true);
     }
       
@@ -54,7 +54,11 @@ const {amount,keyId,currency,notes,orderId}=await order.data;
     theme: {
       color: "#8b5cf6",
     },
-    handler: verifyPremiumUser,
+   handler: async () => {
+  setTimeout(() => {
+    verifyPremiumUser();
+  }, 2000); // wait for webhook
+}
   };
 
   const razor = new window.window.Razorpay(options);
