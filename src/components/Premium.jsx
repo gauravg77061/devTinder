@@ -68,7 +68,28 @@ const {amount,keyId,currency,notes,orderId}=await order.data;
 
   return (
  <div >
-  { isUserPremium ? ("You are already a premium User")  :(<div className="w-full flex flex-col items-center mt-10">
+  { isUserPremium ? ( <div className="flex flex-col items-center justify-center mt-24 px-4">
+    <div className="bg-gradient-to-br from-yellow-400 via-amber-500 to-orange-500 
+                    text-white rounded-2xl shadow-2xl p-10 max-w-lg w-full 
+                    text-center animate-fadeIn">
+      
+      <div className="text-6xl mb-4">👑</div>
+
+      <h1 className="text-3xl font-extrabold mb-3">
+        You are already a Premium User
+      </h1>
+
+      <p className="text-sm opacity-90 mb-6">
+        Enjoy unlimited access, priority connections, and premium features 🚀
+      </p>
+
+      <div className="flex justify-center gap-4">
+        <span className="badge badge-success badge-lg px-6 py-4">
+          Premium Active
+        </span>
+      </div>
+    </div>
+  </div>)  :(<div className="w-full flex flex-col items-center mt-10">
   <div className="flex flex-wrap gap-10 justify-center">
 
     {/* CARD 1 */}
