@@ -1,10 +1,14 @@
 import axios from 'axios'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { BASE_URL } from '../utils/constant'
 
 const Premium = () => {
 
   const[isUserPremium,setIsUserPremium]=useState(false);
+
+  useEffect(()=>{
+    verifyPremiumUser()
+  },[])
 
   const verifyPremiumUser = async ()=>{
     try {
