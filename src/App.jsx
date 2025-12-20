@@ -14,6 +14,8 @@ import Connections from './components/Connections'
 import Request from './components/Request'
 import axios from "axios";
 import Premium from './components/Premium'
+import Chat from './components/Chat'
+
 axios.defaults.withCredentials = true;
 
 function App() {
@@ -33,6 +35,7 @@ function App() {
          <Route path='/connections' element={<Connections/>}/>
           <Route path='/requests' element={<Request/>}/>
            <Route path='/premium' element={<Premium/>}/>
+           <Route path='/chat/:targetUserId' element={<Chat/>}/>
         </Route>
       </Routes>
 

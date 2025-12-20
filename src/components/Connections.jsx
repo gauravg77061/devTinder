@@ -3,6 +3,7 @@ import React, { useEffect } from 'react'
 import { BASE_URL } from '../utils/constant'
 import {connect, useDispatch, useSelector} from "react-redux";
 import { addConnections } from '../utils/connectionSlice';
+import { Link } from 'react-router-dom';
 const Connections = () => {
   const connections = useSelector((store)=>store.connections);
   const dispatch=useDispatch();
@@ -24,7 +25,7 @@ const Connections = () => {
   useEffect(()=>{
     fetchConnectons();
   },[])
-console.log(connections);
+ //console.log(connections);
 
   if(!connections) return ;
 
@@ -40,7 +41,7 @@ console.log(connections);
     return(
       <div 
         key={connection._id} 
-        className='flex items-center p-6 mb-6 bg-base-100 rounded-2xl shadow-xl border border-base-300 
+        className='flex items-center justify-between p-6 mb-6 bg-base-100 rounded-2xl shadow-xl border border-base-300 
         w-11/12 md:w-2/3 lg:w-1/2 mx-auto hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 cursor-pointer'
       >
         
@@ -70,7 +71,17 @@ console.log(connections);
           </p>
         }
        </div>
-
+     <Link to={`/chat/${connection._id}`}>
+  <button
+    className="flex items-center gap-2 px-5 py-2 rounded-full
+               bg-gradient-to-r from-primary to-secondary
+               text-white font-semibold
+               shadow-md hover:shadow-xl
+               hover:scale-105 transition-all duration-300"
+  >
+    💬 Chat
+  </button>
+</Link>
       </div>
     );
 
